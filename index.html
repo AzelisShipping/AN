@@ -39,7 +39,144 @@
         </div>
 
         <!-- Charts Section -->
-        <div id="root"></div>
+        <div id="root"><svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Price Comparison Chart -->
+    <g transform="translate(50, 20)">
+        <!-- Title -->
+        <text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle">Price Comparison (£/L)</text>
+        
+        <!-- Y-axis -->
+        <line x1="50" y1="50" x2="50" y2="200" stroke="black" />
+        <text x="45" y="60" text-anchor="end">£14</text>
+        <text x="45" y="95" text-anchor="end">£12</text>
+        <text x="45" y="130" text-anchor="end">£10</text>
+        <text x="45" y="165" text-anchor="end">£8</text>
+        <text x="45" y="200" text-anchor="end">£6</text>
+
+        <!-- X-axis -->
+        <line x1="50" y1="200" x2="650" y2="200" stroke="black" />
+        
+        <!-- Bars for 1L Product -->
+        <g transform="translate(100, 0)">
+            <rect x="0" y="130" width="20" height="70" fill="#8884d8" />
+            <rect x="25" y="110" width="20" height="90" fill="#82ca9d" />
+            <rect x="50" y="90" width="20" height="110" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">1L 5W30</text>
+            <text x="10" y="125" text-anchor="middle" font-size="10">£8.59</text>
+            <text x="35" y="105" text-anchor="middle" font-size="10">£10.99</text>
+            <text x="60" y="85" text-anchor="middle" font-size="10">£12.83</text>
+        </g>
+
+        <!-- Bars for 5L 5W30 -->
+        <g transform="translate(250, 0)">
+            <rect x="0" y="150" width="20" height="50" fill="#8884d8" />
+            <rect x="25" y="145" width="20" height="55" fill="#82ca9d" />
+            <rect x="50" y="140" width="20" height="60" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">5L 5W30</text>
+            <text x="10" y="145" text-anchor="middle" font-size="10">£6.54</text>
+            <text x="35" y="140" text-anchor="middle" font-size="10">£6.89</text>
+            <text x="60" y="135" text-anchor="middle" font-size="10">£7.16</text>
+        </g>
+
+        <!-- Bars for 5L 5W20 -->
+        <g transform="translate(400, 0)">
+            <rect x="0" y="150" width="20" height="50" fill="#8884d8" />
+            <rect x="25" y="150" width="20" height="50" fill="#82ca9d" />
+            <rect x="50" y="140" width="20" height="60" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">5L 5W20</text>
+            <text x="10" y="145" text-anchor="middle" font-size="10">£6.67</text>
+            <text x="35" y="145" text-anchor="middle" font-size="10">£6.67</text>
+            <text x="60" y="135" text-anchor="middle" font-size="10">£7.16</text>
+        </g>
+
+        <!-- Bars for 20L -->
+        <g transform="translate(550, 0)">
+            <rect x="0" y="155" width="20" height="45" fill="#8884d8" />
+            <rect x="25" y="160" width="20" height="40" fill="#82ca9d" />
+            <rect x="50" y="130" width="20" height="70" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">20L 5W30</text>
+            <text x="10" y="150" text-anchor="middle" font-size="10">£6.17</text>
+            <text x="35" y="155" text-anchor="middle" font-size="10">£5.99</text>
+            <text x="60" y="125" text-anchor="middle" font-size="10">£8.82</text>
+        </g>
+
+        <!-- Legend -->
+        <g transform="translate(200, 10)">
+            <rect x="0" y="0" width="15" height="15" fill="#8884d8" />
+            <text x="20" y="12" font-size="12">Current</text>
+            <rect x="80" y="0" width="15" height="15" fill="#82ca9d" />
+            <text x="100" y="12" font-size="12">New</text>
+            <rect x="160" y="0" width="15" height="15" fill="#ffc658" />
+            <text x="180" y="12" font-size="12">Castrol Avg</text>
+        </g>
+    </g>
+
+    <!-- Impact Analysis Chart -->
+    <g transform="translate(50, 270)">
+        <!-- Title -->
+        <text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle">Impact Analysis (%)</text>
+        
+        <!-- Y-axis -->
+        <line x1="50" y1="50" x2="50" y2="200" stroke="black" />
+        <text x="45" y="60" text-anchor="end">30%</text>
+        <text x="45" y="95" text-anchor="end">15%</text>
+        <text x="45" y="130" text-anchor="end">0%</text>
+        <text x="45" y="165" text-anchor="end">-15%</text>
+        <text x="45" y="200" text-anchor="end">-30%</text>
+
+        <!-- X-axis -->
+        <line x1="50" y1="130" x2="650" y2="130" stroke="black" />
+        
+        <!-- Product Groups -->
+        <g transform="translate(100, 0)">
+            <rect x="0" y="95" width="20" height="35" fill="#8884d8" />
+            <rect x="25" y="140" width="20" height="10" fill="#82ca9d" />
+            <rect x="50" y="115" width="20" height="15" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">1L 5W30</text>
+            <text x="10" y="90" text-anchor="middle" font-size="10">+28%</text>
+            <text x="35" y="155" text-anchor="middle" font-size="10">-10%</text>
+            <text x="60" y="110" text-anchor="middle" font-size="10">+15%</text>
+        </g>
+
+        <g transform="translate(250, 0)">
+            <rect x="0" y="125" width="20" height="5" fill="#8884d8" />
+            <rect x="25" y="133" width="20" height="3" fill="#82ca9d" />
+            <rect x="50" y="128" width="20" height="2" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">5L 5W30</text>
+            <text x="10" y="120" text-anchor="middle" font-size="10">+5%</text>
+            <text x="35" y="145" text-anchor="middle" font-size="10">-3%</text>
+            <text x="60" y="125" text-anchor="middle" font-size="10">+2%</text>
+        </g>
+
+        <g transform="translate(400, 0)">
+            <rect x="0" y="130" width="20" height="0" fill="#8884d8" />
+            <rect x="25" y="130" width="20" height="0" fill="#82ca9d" />
+            <rect x="50" y="130" width="20" height="0" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">5L 5W20</text>
+            <text x="35" y="125" text-anchor="middle" font-size="10">0%</text>
+        </g>
+
+        <g transform="translate(550, 0)">
+            <rect x="0" y="133" width="20" height="3" fill="#8884d8" />
+            <rect x="25" y="115" width="20" height="15" fill="#82ca9d" />
+            <rect x="50" y="118" width="20" height="12" fill="#ffc658" />
+            <text x="35" y="220" text-anchor="middle" font-size="12">20L 5W30</text>
+            <text x="10" y="145" text-anchor="middle" font-size="10">-3%</text>
+            <text x="35" y="110" text-anchor="middle" font-size="10">+15%</text>
+            <text x="60" y="113" text-anchor="middle" font-size="10">+12%</text>
+        </g>
+
+        <!-- Legend -->
+        <g transform="translate(200, 10)">
+            <rect x="0" y="0" width="15" height="15" fill="#8884d8" />
+            <text x="20" y="12" font-size="12">Price Change</text>
+            <rect x="100" y="0" width="15" height="15" fill="#82ca9d" />
+            <text x="120" y="12" font-size="12">Volume Impact</text>
+            <rect x="200" y="0" width="15" height="15" fill="#ffc658" />
+            <text x="220" y="12" font-size="12">Revenue Impact</text>
+        </g>
+    </g>
+</svg></div>
 
         <!-- Analysis Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
