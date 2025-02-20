@@ -5,222 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ford Store Pricing Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .chart-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .chart-container svg {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.1.9/Recharts.js"></script>
 </head>
 <body class="bg-gray-50">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
         <!-- Header Section -->
         <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Ford Store Pricing Strategy</h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="p-4 bg-blue-50 rounded">
                     <h3 class="font-bold">Expected Revenue Growth</h3>
                     <p class="text-2xl font-bold text-blue-600">+12%</p>
-                    <p class="text-sm text-gray-600">Over 6 months</p>
+                    <p class="text-gray-600">Over 6 months</p>
                 </div>
                 <div class="p-4 bg-green-50 rounded">
                     <h3 class="font-bold">Volume Growth</h3>
                     <p class="text-2xl font-bold text-green-600">+5%</p>
-                    <p class="text-sm text-gray-600">Across portfolio</p>
+                    <p class="text-gray-600">Across portfolio</p>
                 </div>
                 <div class="p-4 bg-yellow-50 rounded">
                     <h3 class="font-bold">Margin Improvement</h3>
                     <p class="text-2xl font-bold text-yellow-600">+8%</p>
-                    <p class="text-sm text-gray-600">Expected increase</p>
+                    <p class="text-gray-600">Expected increase</p>
                 </div>
             </div>
         </div>
 
-        <!-- Charts Section -->
-     
-<!-- Chart Section Style -->
-<style>
-    .chart-container {
-        background: white;
-        padding: 2rem;
-        margin: 2rem 0;
-        border-radius: 0.5rem;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    }
-    
-    .chart-container svg {
-        width: 100%;
-        height: auto;
-        min-height: 800px;
-    }
-</style>
+        <!-- React Chart Mount Points -->
+        <div id="priceComparisonChart" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-bold mb-6">Price Comparison Analysis (£/L)</h2>
+            <div class="chart-container" style="height: 400px;"></div>
+        </div>
 
-<!-- Chart Section HTML -->
-<div class="chart-container">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-    <!-- Price Comparison Chart -->
-    <g transform="translate(50, 50)">
-        <!-- Title -->
-        <text x="500" y="30" font-size="24" font-weight="bold" text-anchor="middle">Price Comparison Analysis (£/L)</text>
-        
-        <!-- Y-axis -->
-        <line x1="100" y1="50" x2="100" y2="300" stroke="black" stroke-width="2" />
-        <text x="90" y="60" text-anchor="end" font-size="14">£14</text>
-        <text x="90" y="120" text-anchor="end" font-size="14">£12</text>
-        <text x="90" y="180" text-anchor="end" font-size="14">£10</text>
-        <text x="90" y="240" text-anchor="end" font-size="14">£8</text>
-        <text x="90" y="300" text-anchor="end" font-size="14">£6</text>
+        <div id="impactAnalysisChart" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-bold mb-6">Expected Impact Analysis (%)</h2>
+            <div class="chart-container" style="height: 400px;"></div>
+        </div>
 
-        <!-- X-axis -->
-        <line x1="100" y1="300" x2="900" y2="300" stroke="black" stroke-width="2" />
-        
-        <!-- Grid lines -->
-        <g stroke="#e0e0e0" stroke-dasharray="5,5">
-            <line x1="100" y1="60" x2="900" y2="60" />
-            <line x1="100" y1="120" x2="900" y2="120" />
-            <line x1="100" y1="180" x2="900" y2="180" />
-            <line x1="100" y1="240" x2="900" y2="240" />
-        </g>
-
-        <!-- Bar Groups -->
-        <!-- 1L Product -->
-        <g transform="translate(150, 0)">
-            <rect x="0" y="180" width="40" height="120" fill="#4299E1" />
-            <rect x="45" y="140" width="40" height="160" fill="#48BB78" />
-            <rect x="90" y="120" width="40" height="180" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">1L 5W30</text>
-            <text x="20" y="170" text-anchor="middle" font-size="14">£8.59</text>
-            <text x="65" y="130" text-anchor="middle" font-size="14">£10.99</text>
-            <text x="110" y="110" text-anchor="middle" font-size="14">£12.83</text>
-        </g>
-
-        <!-- 5L 5W30 Product -->
-        <g transform="translate(350, 0)">
-            <rect x="0" y="210" width="40" height="90" fill="#4299E1" />
-            <rect x="45" y="200" width="40" height="100" fill="#48BB78" />
-            <rect x="90" y="190" width="40" height="110" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">5L 5W30</text>
-            <text x="20" y="200" text-anchor="middle" font-size="14">£6.54</text>
-            <text x="65" y="190" text-anchor="middle" font-size="14">£6.89</text>
-            <text x="110" y="180" text-anchor="middle" font-size="14">£7.16</text>
-        </g>
-
-        <!-- 5L 5W20 Product -->
-        <g transform="translate(550, 0)">
-            <rect x="0" y="205" width="40" height="95" fill="#4299E1" />
-            <rect x="45" y="205" width="40" height="95" fill="#48BB78" />
-            <rect x="90" y="190" width="40" height="110" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">5L 5W20</text>
-            <text x="20" y="195" text-anchor="middle" font-size="14">£6.67</text>
-            <text x="65" y="195" text-anchor="middle" font-size="14">£6.67</text>
-            <text x="110" y="180" text-anchor="middle" font-size="14">£7.16</text>
-        </g>
-
-        <!-- 20L Product -->
-        <g transform="translate(750, 0)">
-            <rect x="0" y="215" width="40" height="85" fill="#4299E1" />
-            <rect x="45" y="220" width="40" height="80" fill="#48BB78" />
-            <rect x="90" y="170" width="40" height="130" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">20L 5W30</text>
-            <text x="20" y="205" text-anchor="middle" font-size="14">£6.17</text>
-            <text x="65" y="210" text-anchor="middle" font-size="14">£5.99</text>
-            <text x="110" y="160" text-anchor="middle" font-size="14">£8.82</text>
-        </g>
-
-        <!-- Legend -->
-        <g transform="translate(300, 0)">
-            <rect x="0" y="20" width="20" height="20" fill="#4299E1" />
-            <text x="30" y="35" font-size="14">Current Price</text>
-            <rect x="150" y="20" width="20" height="20" fill="#48BB78" />
-            <text x="180" y="35" font-size="14">Recommended Price</text>
-            <rect x="300" y="20" width="20" height="20" fill="#ECC94B" />
-            <text x="330" y="35" font-size="14">Castrol Competitor Avg</text>
-        </g>
-    </g>
-
-    <!-- Impact Analysis Chart -->
-    <g transform="translate(50, 450)">
-        <!-- Title -->
-        <text x="500" y="30" font-size="24" font-weight="bold" text-anchor="middle">Expected Impact Analysis (%)</text>
-        
-        <!-- Y-axis -->
-        <line x1="100" y1="50" x2="100" y2="300" stroke="black" stroke-width="2" />
-        <text x="90" y="60" text-anchor="end" font-size="14">30%</text>
-        <text x="90" y="120" text-anchor="end" font-size="14">15%</text>
-        <text x="90" y="180" text-anchor="end" font-size="14">0%</text>
-        <text x="90" y="240" text-anchor="end" font-size="14">-15%</text>
-        <text x="90" y="300" text-anchor="end" font-size="14">-30%</text>
-
-        <!-- X-axis -->
-        <line x1="100" y1="180" x2="900" y2="180" stroke="black" stroke-width="2" />
-        
-        <!-- Grid lines -->
-        <g stroke="#e0e0e0" stroke-dasharray="5,5">
-            <line x1="100" y1="60" x2="900" y2="60" />
-            <line x1="100" y1="120" x2="900" y2="120" />
-            <line x1="100" y1="240" x2="900" y2="240" />
-        </g>
-
-        <!-- Bar Groups -->
-        <!-- 1L Product -->
-        <g transform="translate(150, 0)">
-            <rect x="0" y="120" width="40" height="60" fill="#4299E1" />
-            <rect x="45" y="180" width="40" height="20" fill="#48BB78" />
-            <rect x="90" y="150" width="40" height="30" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">1L 5W30</text>
-            <text x="20" y="110" text-anchor="middle" font-size="14">+28%</text>
-            <text x="65" y="210" text-anchor="middle" font-size="14">-10%</text>
-            <text x="110" y="140" text-anchor="middle" font-size="14">+15%</text>
-        </g>
-
-        <!-- 5L 5W30 Product -->
-        <g transform="translate(350, 0)">
-            <rect x="0" y="170" width="40" height="10" fill="#4299E1" />
-            <rect x="45" y="183" width="40" height="5" fill="#48BB78" />
-            <rect x="90" y="176" width="40" height="4" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">5L 5W30</text>
-            <text x="20" y="160" text-anchor="middle" font-size="14">+5%</text>
-            <text x="65" y="200" text-anchor="middle" font-size="14">-3%</text>
-            <text x="110" y="170" text-anchor="middle" font-size="14">+2%</text>
-        </g>
-
-        <!-- 5L 5W20 Product -->
-        <g transform="translate(550, 0)">
-            <rect x="0" y="180" width="40" height="0" fill="#4299E1" />
-            <rect x="45" y="180" width="40" height="0" fill="#48BB78" />
-            <rect x="90" y="180" width="40" height="0" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">5L 5W20</text>
-            <text x="65" y="170" text-anchor="middle" font-size="14">0%</text>
-        </g>
-
-        <!-- 20L Product -->
-        <g transform="translate(750, 0)">
-            <rect x="0" y="183" width="40" height="5" fill="#4299E1" />
-            <rect x="45" y="150" width="40" height="30" fill="#48BB78" />
-            <rect x="90" y="156" width="40" height="24" fill="#ECC94B" />
-            <text x="65" y="330" text-anchor="middle" font-size="16" font-weight="bold">20L 5W30</text>
-            <text x="20" y="200" text-anchor="middle" font-size="14">-3%</text>
-            <text x="65" y="140" text-anchor="middle" font-size="14">+15%</text>
-            <text x="110" y="146" text-anchor="middle" font-size="14">+12%</text>
-        </g>
-
-        <!-- Legend -->
-        <g transform="translate(300, 0)">
-            <rect x="0" y="20" width="20" height="20" fill="#4299E1" />
-            <text x="30" y="35" font-size="14">Price Change</text>
-            <rect x="150" y="20" width="20" height="20" fill="#48BB78" />
-            <text x="180" y="35" font-size="14">Volume Impact</text>
-            <rect x="300" y="20" width="20" height="20" fill="#ECC94B" />
-            <text x="330" y="35" font-size="14">Revenue Impact</text>
-        </g>
-    </g>
-</svg>
-</div>
         <!-- Analysis Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-white rounded-lg shadow-lg p-6">
@@ -251,30 +74,37 @@
 
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-xl font-bold mb-4">Implementation Plan</h2>
-                <div class="space-y-4">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="font-bold text-gray-700">Weekly Actions</h3>
-                        <ul class="list-disc pl-6 space-y-1 text-sm">
-                            <li>Monitor competitor pricing</li>
-                            <li>Track sales volume</li>
-                            <li>Adjust prices within 10% band</li>
+                        <h3 class="font-bold text-gray-700 mb-2">Weekly Actions</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-sm">
+                            <li>Monitor competitor pricing across all product categories and track any changes in their pricing strategy</li>
+                            <li>Track sales volume for each product to identify any immediate impacts from price changes</li>
+                            <li>Make dynamic price adjustments up to 10% higher or lower than the recommended price based on market conditions and sales performance (e.g., if a product is selling well, we can test slightly higher prices within this range)</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold text-gray-700">Monthly Review</h3>
-                        <ul class="list-disc pl-6 space-y-1 text-sm">
-                            <li>Analyze market share</li>
-                            <li>Review customer feedback</li>
-                            <li>Assess promotion effectiveness</li>
+                        <h3 class="font-bold text-gray-700 mb-2">Monthly Review</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-sm">
+                            <li>Analyze our market share position for each product category compared to key competitors like Castrol</li>
+                            <li>Review customer feedback and complaints specifically related to pricing to identify any potential issues</li>
+                            <li>Evaluate the performance of current promotions by measuring sales lift, revenue impact, and customer adoption rates</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold text-gray-700">Quarterly Strategy</h3>
-                        <ul class="list-disc pl-6 space-y-1 text-sm">
-                            <li>5L product promotions</li>
-                            <li>1L bundle deals</li>
-                            <li>20L volume discounts</li>
-                            <li>Review pricing strategy</li>
+                        <h3 class="font-bold text-gray-700 mb-2">Quarterly Strategy</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-sm">
+                            <li>Run targeted promotions for 5L products during peak seasons (e.g., 10% discount when buying 2 or more units)</li>
+                            <li>Create value-add bundle deals for 1L products (e.g., buy 3 get 1 free) to encourage bulk purchases</li>
+                            <li>Implement tiered volume discounts for 20L products (e.g., 5% off for 3+ units, 10% off for 5+ units)</li>
+                            <li>Conduct comprehensive review of pricing strategy effectiveness, including:
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>Analysis of revenue growth vs targets</li>
+                                    <li>Assessment of market share changes</li>
+                                    <li>Review of customer retention metrics</li>
+                                    <li>Evaluation of promotion effectiveness</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -287,30 +117,134 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                     <h3 class="font-bold text-gray-700">Sales Metrics</h3>
-                    <ul class="list-disc pl-6 space-y-1 text-sm">
-                        <li>Revenue growth vs target</li>
-                        <li>Volume changes by product</li>
-                        <li>Market share tracking</li>
+                    <ul class="list-disc pl-6 space-y-2 text-sm">
+                        <li>Track monthly revenue against 12% growth target</li>
+                        <li>Monitor volume changes by product with 5% growth benchmark</li>
+                        <li>Compare market share against top 3 competitors</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-bold text-gray-700">Price Position</h3>
-                    <ul class="list-disc pl-6 space-y-1 text-sm">
-                        <li>Competitor price tracking</li>
-                        <li>Price elasticity analysis</li>
-                        <li>Promotion effectiveness</li>
+                    <ul class="list-disc pl-6 space-y-2 text-sm">
+                        <li>Weekly tracking of competitor price movements</li>
+                        <li>Monthly analysis of price sensitivity by product</li>
+                        <li>Measure ROI on all active promotions</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-bold text-gray-700">Customer Metrics</h3>
-                    <ul class="list-disc pl-6 space-y-1 text-sm">
-                        <li>Customer satisfaction</li>
-                        <li>Repeat purchase rate</li>
-                        <li>Brand perception</li>
+                    <ul class="list-disc pl-6 space-y-2 text-sm">
+                        <li>Monthly customer satisfaction surveys</li>
+                        <li>Track customer retention rate (target: 85%)</li>
+                        <li>Monitor brand perception scores</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Chart data
+        const priceComparisonData = [
+            {
+                product: '1L 5W30',
+                currentPrice: 8.59,
+                recommendedPrice: 10.99,
+                competitorPrice: 12.83
+            },
+            {
+                product: '5L 5W30',
+                currentPrice: 6.54,
+                recommendedPrice: 6.89,
+                competitorPrice: 7.16
+            },
+            {
+                product: '5L 5W20',
+                currentPrice: 6.67,
+                recommendedPrice: 6.67,
+                competitorPrice: 7.16
+            },
+            {
+                product: '20L 5W30',
+                currentPrice: 6.17,
+                recommendedPrice: 5.99,
+                competitorPrice: 8.82
+            }
+        ];
+
+        const impactData = [
+            {
+                product: '1L 5W30',
+                priceChange: 28,
+                volumeImpact: -10,
+                revenueImpact: 15
+            },
+            {
+                product: '5L 5W30',
+                priceChange: 5,
+                volumeImpact: -3,
+                revenueImpact: 2
+            },
+            {
+                product: '5L 5W20',
+                priceChange: 0,
+                volumeImpact: 0,
+                revenueImpact: 0
+            },
+            {
+                product: '20L 5W30',
+                priceChange: -3,
+                volumeImpact: 15,
+                revenueImpact: 12
+            }
+        ];
+
+        // Create price comparison chart
+        const PriceComparisonChart = () => {
+            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
+            
+            return React.createElement(ResponsiveContainer, { width: '100%', height: 400 },
+                React.createElement(BarChart, { data: priceComparisonData },
+                    React.createElement(CartesianGrid, { strokeDasharray: '3 3' }),
+                    React.createElement(XAxis, { dataKey: 'product' }),
+                    React.createElement(YAxis),
+                    React.createElement(Tooltip),
+                    React.createElement(Legend),
+                    React.createElement(Bar, { dataKey: 'currentPrice', name: 'Current Price', fill: '#4299E1' }),
+                    React.createElement(Bar, { dataKey: 'recommendedPrice', name: 'Recommended Price', fill: '#48BB78' }),
+                    React.createElement(Bar, { dataKey: 'competitorPrice', name: 'Castrol Competitor Avg', fill: '#ECC94B' })
+                )
+            );
+        };
+
+        // Create impact analysis chart
+        const ImpactAnalysisChart = () => {
+            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
+            
+            return React.createElement(ResponsiveContainer, { width: '100%', height: 400 },
+                React.createElement(BarChart, { data: impactData },
+                    React.createElement(CartesianGrid, { strokeDasharray: '3 3' }),
+                    React.createElement(XAxis, { dataKey: 'product' }),
+                    React.createElement(YAxis),
+                    React.createElement(Tooltip),
+                    React.createElement(Legend),
+                    React.createElement(Bar, { dataKey: 'priceChange', name: 'Price Change %', fill: '#4299E1' }),
+                    React.createElement(Bar, { dataKey: 'volumeImpact', name: 'Volume Impact %', fill: '#48BB78' }),
+                    React.createElement(Bar, { dataKey: 'revenueImpact', name: 'Revenue Impact %', fill: '#ECC94B' })
+                )
+            );
+        };
+
+        // Render charts
+        ReactDOM.render(
+            React.createElement(PriceComparisonChart),
+            document.querySelector('#priceComparisonChart .chart-container')
+        );
+
+        ReactDOM.render(
+            React.createElement(ImpactAnalysisChart),
+            document.querySelector('#impactAnalysisChart .chart-container')
+        );
+    </script>
 </body>
 </html>
