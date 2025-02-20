@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ford Store Pricing Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.1.9/Recharts.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
@@ -33,15 +40,19 @@
             </div>
         </div>
 
-        <!-- React Chart Mount Points -->
-        <div id="priceComparisonChart" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <!-- Charts Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h2 class="text-xl font-bold mb-6">Price Comparison Analysis (£/L)</h2>
-            <div class="chart-container" style="height: 400px;"></div>
+            <div class="chart-container">
+                <canvas id="priceComparisonChart"></canvas>
+            </div>
         </div>
 
-        <div id="impactAnalysisChart" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h2 class="text-xl font-bold mb-6">Expected Impact Analysis (%)</h2>
-            <div class="chart-container" style="height: 400px;"></div>
+            <div class="chart-container">
+                <canvas id="impactAnalysisChart"></canvas>
+            </div>
         </div>
 
         <!-- Analysis Section -->
@@ -144,107 +155,96 @@
     </div>
 
     <script>
-        // Chart data
-        const priceComparisonData = [
-            {
-                product: '1L 5W30',
-                currentPrice: 8.59,
-                recommendedPrice: 10.99,
-                competitorPrice: 12.83
+        // Chart data and configuration
+        const products = ['1L 5W30', '5L 5W30', '5L 5W20', '20L 5W30'];
+        
+        // Price Comparison Chart
+        const priceCtx = document.getElementById('priceComparisonChart').getContext('2d');
+        new Chart(priceCtx, {
+            type: 'bar',
+            data: {
+                labels: products,
+                datasets: [
+                    {
+                        label: 'Current Price',
+                        data: [8.59, 6.54, 6.67, 6.17],
+                        backgroundColor: '#4299E1'
+                    },
+                    {
+                        label: 'Recommended Price',
+                        data: [10.99, 6.89, 6.67, 5.99],
+                        backgroundColor: '#48BB78'
+                    },
+                    {
+                        label: 'Castrol Competitor Avg',
+                        data: [12.83, 7.16, 7.16, 8.82],
+                        backgroundColor: '#ECC94B'
+                    }
+                ]
             },
-            {
-                product: '5L 5W30',
-                currentPrice: 6.54,
-                recommendedPrice: 6.89,
-                competitorPrice: 7.16
-            },
-            {
-                product: '5L 5W20',
-                currentPrice: 6.67,
-                recommendedPrice: 6.67,
-                competitorPrice: 7.16
-            },
-            {
-                product: '20L 5W30',
-                currentPrice: 6.17,
-                recommendedPrice: 5.99,
-                competitorPrice: 8.82
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Price (£/L)'
+                        }
+                    }
+                }
             }
-        ];
+        });
 
-        const impactData = [
-            {
-                product: '1L 5W30',
-                priceChange: 28,
-                volumeImpact: -10,
-                revenueImpact: 15
+        // Impact Analysis Chart
+        const impactCtx = document.getElementById('impactAnalysisChart').getContext('2d');
+        new Chart(impactCtx, {
+            type: 'bar',
+            data: {
+                labels: products,
+                datasets: [
+                    {
+                        label: 'Price Change %',
+                        data: [28, 5, 0, -3],
+                        backgroundColor: '#4299E1'
+                    },
+                    {
+                        label: 'Volume Impact %',
+                        data: [-10, -3, 0, 15],
+                        backgroundColor: '#48BB78'
+                    },
+                    {
+                        label: 'Revenue Impact %',
+                        data: [15, 2, 0, 12],
+                        backgroundColor: '#ECC94B'
+                    }
+                ]
             },
-            {
-                product: '5L 5W30',
-                priceChange: 5,
-                volumeImpact: -3,
-                revenueImpact: 2
-            },
-            {
-                product: '5L 5W20',
-                priceChange: 0,
-                volumeImpact: 0,
-                revenueImpact: 0
-            },
-            {
-                product: '20L 5W30',
-                priceChange: -3,
-                volumeImpact: 15,
-                revenueImpact: 12
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Percentage (%)'
+                        }
+                    }
+                }
             }
-        ];
-
-        // Create price comparison chart
-        const PriceComparisonChart = () => {
-            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
-            
-            return React.createElement(ResponsiveContainer, { width: '100%', height: 400 },
-                React.createElement(BarChart, { data: priceComparisonData },
-                    React.createElement(CartesianGrid, { strokeDasharray: '3 3' }),
-                    React.createElement(XAxis, { dataKey: 'product' }),
-                    React.createElement(YAxis),
-                    React.createElement(Tooltip),
-                    React.createElement(Legend),
-                    React.createElement(Bar, { dataKey: 'currentPrice', name: 'Current Price', fill: '#4299E1' }),
-                    React.createElement(Bar, { dataKey: 'recommendedPrice', name: 'Recommended Price', fill: '#48BB78' }),
-                    React.createElement(Bar, { dataKey: 'competitorPrice', name: 'Castrol Competitor Avg', fill: '#ECC94B' })
-                )
-            );
-        };
-
-        // Create impact analysis chart
-        const ImpactAnalysisChart = () => {
-            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
-            
-            return React.createElement(ResponsiveContainer, { width: '100%', height: 400 },
-                React.createElement(BarChart, { data: impactData },
-                    React.createElement(CartesianGrid, { strokeDasharray: '3 3' }),
-                    React.createElement(XAxis, { dataKey: 'product' }),
-                    React.createElement(YAxis),
-                    React.createElement(Tooltip),
-                    React.createElement(Legend),
-                    React.createElement(Bar, { dataKey: 'priceChange', name: 'Price Change %', fill: '#4299E1' }),
-                    React.createElement(Bar, { dataKey: 'volumeImpact', name: 'Volume Impact %', fill: '#48BB78' }),
-                    React.createElement(Bar, { dataKey: 'revenueImpact', name: 'Revenue Impact %', fill: '#ECC94B' })
-                )
-            );
-        };
-
-        // Render charts
-        ReactDOM.render(
-            React.createElement(PriceComparisonChart),
-            document.querySelector('#priceComparisonChart .chart-container')
-        );
-
-        ReactDOM.render(
-            React.createElement(ImpactAnalysisChart),
-            document.querySelector('#impactAnalysisChart .chart-container')
-        );
+        });
     </script>
 </body>
 </html>
