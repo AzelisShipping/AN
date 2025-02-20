@@ -41,7 +41,7 @@
 
         <!-- Charts Section -->
         <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-xl font-bold mb-6">Price Comparison Analysis (£/L)</h2>
+            <h2 class="text-xl font-bold mb-6">Product Price Comparison (£)</h2>
             <div class="chart-container">
                 <canvas id="priceComparisonChart"></canvas>
             </div>
@@ -56,6 +56,7 @@
 
         <!-- Analysis Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Price Recommendations -->
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-xl font-bold mb-4">Price Recommendations</h2>
                 <div class="space-y-4">
@@ -64,9 +65,9 @@
                         <h3 class="font-bold">1L Magnatec A5 5W30</h3>
                         <p class="text-sm text-gray-500">SKU: L15F60E</p>
                         <p class="text-lg font-semibold">From: £8.59 To: £10.99 (+28%)</p>
-                        <p class="text-sm text-gray-600">Strategic premium positioning. Key rationale:</p>
+                        <p class="text-sm text-gray-600">Strategic premium positioning based on product price. Key rationale:</p>
                         <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Castrol premium range: £11.30 - £17.06</li>
+                            <li>Castrol premium range (product price): £11.30 - £17.06</li>
                             <li>Premium segment average: ~£12.40</li>
                             <li>Better price elasticity at £10.99 improves margin</li>
                             <li>14% below premium segment average</li>
@@ -84,20 +85,20 @@
                     <div class="border-l-4 border-green-500 pl-4">
                         <h3 class="font-bold">5L Magnatec A5 5W30</h3>
                         <p class="text-sm text-gray-500">SKU: L15F60F</p>
-                        <p class="text-lg font-semibold">From: £6.54 To: £6.79 (+4%)</p>
-                        <p class="text-sm text-gray-600">Value premium positioning. Key rationale:</p>
+                        <p class="text-lg font-semibold">From: £32.71 To: £33.95 (+4%)</p>
+                        <p class="text-sm text-gray-600">Value premium positioning based on product price. Key rationale:</p>
                         <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Castrol equivalent at £6.69 (Amazon rank #4)</li>
-                            <li>Premium Castrol range: £5.52 - £8.59</li>
+                            <li>Castrol equivalent product price: ~£33.45 (derived from £6.69 per litre)</li>
+                            <li>Premium Castrol range (product price): £27.60 - £42.95</li>
                             <li>1.5% advantage vs Castrol equivalent</li>
-                            <li>Premium segment average: ~£7.28</li>
-                            <li>Mid-range segment average: £6.21</li>
+                            <li>Premium segment average: ~£36.40 (7.28 x 5)</li>
+                            <li>Mid-range segment average: ~£31.05 (6.21 x 5)</li>
                             <li><strong>Consistency:</strong> Maintains the A5 specification; pricing reflects competitive value while preserving premium positioning.</li>
                             <li><strong>Examples in 5L premium range:</strong>
                                 <ul class="list-disc pl-6 mt-1">
-                                    <li>Castrol EDGE 5W-30 LL, 5L: ~£7.51</li>
-                                    <li>Castrol MAGNATEC 5W-30 A5, 5L: ~£6.69</li>
-                                    <li>Castrol EDGE 5W-40, 5L: ~£7.82</li>
+                                    <li>Castrol EDGE 5W-30 LL, 5L: ~£37.55 (7.51 x 5)</li>
+                                    <li>Castrol MAGNATEC 5W-30 A5, 5L: ~£33.45 (6.69 x 5)</li>
+                                    <li>Castrol EDGE 5W-40, 5L: ~£39.10 (7.82 x 5)</li>
                                 </ul>
                             </li>
                         </ul>
@@ -106,19 +107,19 @@
                     <div class="border-l-4 border-yellow-500 pl-4">
                         <h3 class="font-bold">5L Magnatec E 5W20</h3>
                         <p class="text-sm text-gray-500">SKU: L15F8D6</p>
-                        <p class="text-lg font-semibold">From: £6.67 To: £6.79 (+2%)</p>
-                        <p class="text-sm text-gray-600">Aligned premium positioning. Key rationale:</p>
+                        <p class="text-lg font-semibold">From: £33.37 To: £33.95 (+2%)</p>
+                        <p class="text-sm text-gray-600">Aligned premium positioning based on product price. Key rationale:</p>
                         <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
                             <li>Matches 5W30 pricing for consistency</li>
                             <li>Competitive with Castrol equivalent</li>
-                            <li>Above mid-range average (£6.21)</li>
+                            <li>Above mid-range average (£31.05 product price)</li>
                             <li>Simplifies customer choice</li>
                             <li>Strong margin maintenance</li>
-                            <li><strong>Alignment:</strong> The E specification is designed to complement the A5 line, offering comparable performance while streamlining the customer decision process.</li>
+                            <li><strong>Alignment:</strong> The E specification complements the A5 line, offering comparable performance while streamlining customer decisions.</li>
                             <li><strong>Examples in 5L mid-range/premium crossover:</strong>
                                 <ul class="list-disc pl-6 mt-1">
-                                    <li>Carlube Triple R 5W-30, 5L: ~£5.95</li>
-                                    <li>Castrol MAGNATEC 5W-30 C3, 5L: ~£7.55</li>
+                                    <li>Carlube Triple R 5W-30, 5L: ~£29.75 (5.95 x 5)</li>
+                                    <li>Castrol MAGNATEC 5W-30 C3, 5L: ~£37.75 (7.55 x 5)</li>
                                 </ul>
                             </li>
                         </ul>
@@ -127,20 +128,20 @@
                     <div class="border-l-4 border-purple-500 pl-4">
                         <h3 class="font-bold">20L Magnatec A5 5W30</h3>
                         <p class="text-sm text-gray-500">SKU: L15D5E2</p>
-                        <p class="text-lg font-semibold">From: £6.17 To: £5.99 (-3%)</p>
-                        <p class="text-sm text-gray-600">Strategic bulk pricing. Key rationale:</p>
+                        <p class="text-lg font-semibold">From: £123.49 To: £119.80 (-3%)</p>
+                        <p class="text-sm text-gray-600">Strategic bulk pricing based on product price. Key rationale:</p>
                         <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Premium segment average: ~£7.94</li>
-                            <li>Mid-range segment average: £5.40</li>
-                            <li>Budget segment: ~£2.95</li>
-                            <li>Castrol range: £6.17 - £11.47</li>
+                            <li>Premium segment average (product price): ~£158.80 (7.94 x 20)</li>
+                            <li>Mid-range segment average (product price): ~£108.00 (5.40 x 20)</li>
+                            <li>Budget segment: ~£59.00 (2.95 x 20)</li>
+                            <li>Castrol range (product price): £123.40 - £229.40</li>
                             <li>Positioned for volume growth</li>
-                            <li><strong>Bulk Strategy:</strong> Retains A5 performance while incentivizing volume purchases. The pricing supports competitive bulk offers without compromising premium quality.</li>
+                            <li><strong>Bulk Strategy:</strong> Retains A5 performance while incentivizing volume purchases. Pricing supports competitive bulk offers without compromising premium quality.</li>
                             <li><strong>Examples in 20L market:</strong>
                                 <ul class="list-disc pl-6 mt-1">
-                                    <li>Carlube Triple R 5W-30 A5, 20L: ~£5.40</li>
-                                    <li>Castrol Magnatec 5W-30 D, 20L: ~£11.48</li>
-                                    <li>Budget oils: ~£2.75 - £3.10</li>
+                                    <li>Carlube Triple R 5W-30 A5, 20L: ~£108.00 (5.40 x 20)</li>
+                                    <li>Castrol Magnatec 5W-30 D, 20L: ~£229.40 (11.47 x 20)</li>
+                                    <li>Budget oils: ~£55.00 - £62.00 (approx.)</li>
                                 </ul>
                             </li>
                         </ul>
@@ -156,7 +157,7 @@
                         <h3 class="font-bold text-gray-700 mb-2">Weekly Actions</h3>
                         <ul class="list-disc pl-6 space-y-2 text-sm">
                             <li>Monitor Castrol and other premium brand pricing on Amazon, focusing on best-selling SKUs</li>
-                            <li>Utilize dynamic pricing tools (e.g., Amazon repricer) and adjust prices within ±5% based on demand and competitor moves</li>
+                            <li>Utilize dynamic pricing tools (e.g., Amazon repricer) and adjust product prices within ±5% based on demand and competitor moves</li>
                             <li>Track conversion rates and Buy Box win rates for all products</li>
                         </ul>
                     </div>
@@ -235,7 +236,7 @@
         // Chart data and configuration
         const products = ['1L 5W30', '5L 5W30', '5L 5W20', '20L 5W30'];
         
-        // Price Comparison Chart
+        // Product Price Comparison Chart
         const priceCtx = document.getElementById('priceComparisonChart').getContext('2d');
         new Chart(priceCtx, {
             type: 'bar',
@@ -243,18 +244,18 @@
                 labels: products,
                 datasets: [
                     {
-                        label: 'Current Price (£/L)',
-                        data: [8.59, 6.54, 6.67, 6.17],
+                        label: 'Current Price (£)',
+                        data: [8.59, 32.71, 33.37, 123.49],
                         backgroundColor: '#4299E1'
                     },
                     {
-                        label: 'Recommended Price (£/L)',
-                        data: [10.99, 6.79, 6.79, 5.99],
+                        label: 'Recommended Price (£)',
+                        data: [10.99, 33.95, 33.95, 119.80],
                         backgroundColor: '#48BB78'
                     },
                     {
-                        label: 'Castrol Competitor Avg (£/L)',
-                        data: [12.40, 7.28, 7.16, 7.94],
+                        label: 'Castrol Competitor Avg (£)',
+                        data: [12.40, 36.40, 35.80, 158.80],
                         backgroundColor: '#ECC94B'
                     }
                 ]
@@ -265,7 +266,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Price Comparison (£ per Litre)'
+                        text: 'Product Price Comparison (£)'
                     }
                 },
                 scales: {
@@ -273,14 +274,14 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Price (£/L)'
+                            text: 'Price (£)'
                         }
                     }
                 }
             }
         });
 
-        // Impact Analysis Chart
+        // Impact Analysis Chart (remains unchanged as it reflects percentage impacts)
         const impactCtx = document.getElementById('impactAnalysisChart').getContext('2d');
         new Chart(impactCtx, {
             type: 'bar',
