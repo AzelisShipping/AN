@@ -3,78 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ford Store Pricing Analysis</title>
+    <title>Autonative Pricing Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.2/Recharts.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <header class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900">Ford Store Pricing Analysis & Strategy</h1>
-            <p class="text-gray-600 mt-2">Market Research and Pricing Optimization Recommendations</p>
-        </header>
+        <!-- Header Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Ford Store Pricing Strategy Analysis</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="p-4 bg-blue-50 rounded">
+                    <h3 class="font-bold">Revenue Potential</h3>
+                    <p>+12% over 6 months</p>
+                </div>
+                <div class="p-4 bg-green-50 rounded">
+                    <h3 class="font-bold">Volume Growth</h3>
+                    <p>+5% across portfolio</p>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded">
+                    <h3 class="font-bold">Margin Improvement</h3>
+                    <p>+8% expected</p>
+                </div>
+            </div>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-bold mb-4">Product Analysis</h2>
+        <!-- Charts Section -->
+        <div id="pricing-dashboard"></div>
+
+        <!-- Product Analysis -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <!-- Current Position -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-4">Current Market Position</h2>
                 <div class="space-y-4">
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-bold">1L Magnatec A5 5W30 (L15F60E)</h3>
-                        <p class="text-sm">Current: £8.59/L → New: £10.99/L (+28%)</p>
-                        <p class="text-sm text-gray-600">Below competitor average (£12.83/L)</p>
+                        <p class="text-sm text-gray-600">33% below Castrol competitors</p>
+                        <p class="text-sm text-gray-600">27% below market average</p>
+                        <p class="font-semibold text-blue-600">Action: Increase to £10.99/L</p>
                     </div>
                     <div class="border-l-4 border-green-500 pl-4">
                         <h3 class="font-bold">5L Magnatec A5 5W30 (L15F60F)</h3>
-                        <p class="text-sm">Current: £6.54/L → New: £6.89/L (+5%)</p>
-                        <p class="text-sm text-gray-600">Below competitor average (£7.16/L)</p>
+                        <p class="text-sm text-gray-600">8% below Castrol competitors</p>
+                        <p class="text-sm text-gray-600">Above market average</p>
+                        <p class="font-semibold text-green-600">Action: Increase to £6.89/L</p>
                     </div>
                     <div class="border-l-4 border-yellow-500 pl-4">
                         <h3 class="font-bold">5L Magnatec E 5W20 (L15F8D6)</h3>
-                        <p class="text-sm">Current: £6.67/L → Maintain</p>
-                        <p class="text-sm text-gray-600">Well-positioned vs competitors (£7.16/L)</p>
+                        <p class="text-sm text-gray-600">Well-positioned vs competitors</p>
+                        <p class="text-sm text-gray-600">Stable demand profile</p>
+                        <p class="font-semibold text-yellow-600">Action: Maintain at £6.67/L</p>
                     </div>
                     <div class="border-l-4 border-purple-500 pl-4">
                         <h3 class="font-bold">20L Magnatec A5 5W30 (L15D5E2)</h3>
-                        <p class="text-sm">Current: £6.17/L → New: £5.99/L (-3%)</p>
-                        <p class="text-sm text-gray-600">Above market average (£4.81/L)</p>
+                        <p class="text-sm text-gray-600">30% below Castrol competitors</p>
+                        <p class="text-sm text-gray-600">28% above market average</p>
+                        <p class="font-semibold text-purple-600">Action: Decrease to £5.99/L</p>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6">
+            <!-- Implementation Strategy -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-xl font-bold mb-4">Implementation Strategy</h2>
-                <div class="space-y-4">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="font-bold">Pricing Framework</h3>
-                        <ul class="list-disc pl-6 text-sm">
-                            <li>Weekly competitor monitoring</li>
-                            <li>Stay within 10% of Castrol average</li>
-                            <li>Price floor at market average</li>
+                        <h3 class="font-bold text-gray-700">Dynamic Pricing Framework</h3>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>Weekly competitor price monitoring</li>
+                            <li>Maintain prices within 10% of Castrol average</li>
+                            <li>Price floor at market average except during promotions</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold">Promotional Calendar</h3>
-                        <ul class="list-disc pl-6 text-sm">
-                            <li>Quarterly 5L promotions</li>
-                            <li>1L bundle deals</li>
-                            <li>20L volume discounts</li>
+                        <h3 class="font-bold text-gray-700">Volume Strategy</h3>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>1L: Premium positioning below Castrol</li>
+                            <li>5L: Competitive near market average</li>
+                            <li>20L: Focus on bulk buyers</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold">Expected Impact</h3>
-                        <ul class="list-disc pl-6 text-sm">
-                            <li>Revenue: +12% (6 months)</li>
-                            <li>Volume: +5% (6 months)</li>
-                            <li>Margin: +8% (6 months)</li>
+                        <h3 class="font-bold text-gray-700">Promotional Calendar</h3>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>Quarterly promotions on 5L products</li>
+                            <li>Bundle deals for 1L products</li>
+                            <li>Volume discounts on 20L for repeat customers</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="pricing-dashboard"></div>
+        <!-- Monitoring Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
+            <h2 class="text-xl font-bold mb-4">Monitoring & KPIs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="font-bold text-gray-700">Weekly Tracking</h3>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                        <li>Competitor pricing changes</li>
+                        <li>Sales volume per product</li>
+                        <li>Revenue tracking</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-700">Monthly Analysis</h3>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                        <li>Price elasticity assessment</li>
+                        <li>Market share tracking</li>
+                        <li>Customer feedback review</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-700">Quarterly Review</h3>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                        <li>Strategy effectiveness</li>
+                        <li>Margin analysis</li>
+                        <li>Market position assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/babel">
@@ -124,9 +177,9 @@
             }));
 
             return (
-                <div className="space-y-8">
-                    <div className="bg-white rounded-lg shadow p-6">
-                        <h2 className="text-xl font-bold mb-4">Price Analysis (£/L)</h2>
+                <div className="space-y-6">
+                    <div className="bg-white rounded-lg shadow-lg p-6">
+                        <h2 className="text-xl font-bold mb-4">Price Comparison (£/L)</h2>
                         <div className="h-80">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart
@@ -151,7 +204,7 @@
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-lg shadow p-6">
+                    <div className="bg-white rounded-lg shadow-lg p-6">
                         <h2 className="text-xl font-bold mb-4">Impact Analysis (%)</h2>
                         <div className="h-80">
                             <ResponsiveContainer width="100%" height="100%">
