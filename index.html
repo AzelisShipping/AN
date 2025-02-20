@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ford Store Pricing Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <style>
         .chart-container {
@@ -24,18 +23,18 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="p-4 bg-blue-50 rounded">
                     <h3 class="font-bold">Expected Revenue Growth</h3>
-                    <p class="text-2xl font-bold text-blue-600">+12%</p>
+                    <p class="text-2xl font-bold text-blue-600">+15%</p>
                     <p class="text-gray-600">Over 6 months</p>
                 </div>
                 <div class="p-4 bg-green-50 rounded">
-                    <h3 class="font-bold">Volume Growth</h3>
-                    <p class="text-2xl font-bold text-green-600">+5%</p>
-                    <p class="text-gray-600">Across portfolio</p>
+                    <h3 class="font-bold">Market Share Growth</h3>
+                    <p class="text-2xl font-bold text-green-600">+8%</p>
+                    <p class="text-gray-600">Premium segment focus</p>
                 </div>
                 <div class="p-4 bg-yellow-50 rounded">
-                    <h3 class="font-bold">Margin Improvement</h3>
-                    <p class="text-2xl font-bold text-yellow-600">+8%</p>
-                    <p class="text-gray-600">Expected increase</p>
+                    <h3 class="font-bold">Price Position vs Castrol</h3>
+                    <p class="text-2xl font-bold text-yellow-600">-12%</p>
+                    <p class="text-gray-600">Strategic positioning</p>
                 </div>
             </div>
         </div>
@@ -62,23 +61,23 @@
                 <div class="space-y-4">
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-bold">1L Magnatec A5 5W30</h3>
-                        <p class="text-lg font-semibold">£8.59 → £10.99 (+28%)</p>
-                        <p class="text-sm text-gray-600">Still 14% below Castrol competitors</p>
+                        <p class="text-lg font-semibold">£8.59 → £11.99 (+40%)</p>
+                        <p class="text-sm text-gray-600">6.5% below Castrol premium pricing (£12.83/L)</p>
                     </div>
                     <div class="border-l-4 border-green-500 pl-4">
                         <h3 class="font-bold">5L Magnatec A5 5W30</h3>
-                        <p class="text-lg font-semibold">£6.54 → £6.89 (+5%)</p>
-                        <p class="text-sm text-gray-600">Competitive in high-volume segment</p>
+                        <p class="text-lg font-semibold">£6.54 → £7.29 (+11%)</p>
+                        <p class="text-sm text-gray-600">Aligned with Castrol premium range (£7.16/L)</p>
                     </div>
                     <div class="border-l-4 border-yellow-500 pl-4">
                         <h3 class="font-bold">5L Magnatec E 5W20</h3>
-                        <p class="text-lg font-semibold">Maintain at £6.67</p>
-                        <p class="text-sm text-gray-600">Well-positioned in market</p>
+                        <p class="text-lg font-semibold">£6.67 → £7.29 (+9%)</p>
+                        <p class="text-sm text-gray-600">Standardizing with 5W30 pricing</p>
                     </div>
                     <div class="border-l-4 border-purple-500 pl-4">
                         <h3 class="font-bold">20L Magnatec A5 5W30</h3>
                         <p class="text-lg font-semibold">£6.17 → £5.99 (-3%)</p>
-                        <p class="text-sm text-gray-600">Targeting bulk buyers</p>
+                        <p class="text-sm text-gray-600">Competitive bulk pricing vs market avg £4.81/L</p>
                     </div>
                 </div>
             </div>
@@ -89,31 +88,42 @@
                     <div>
                         <h3 class="font-bold text-gray-700 mb-2">Weekly Actions</h3>
                         <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>Monitor competitor pricing across all product categories and track any changes in their pricing strategy</li>
-                            <li>Track sales volume for each product to identify any immediate impacts from price changes</li>
-                            <li>Make dynamic price adjustments up to 10% higher or lower than the recommended price based on market conditions and sales performance (e.g., if a product is selling well, we can test slightly higher prices within this range)</li>
+                            <li>Track Castrol and other premium brand pricing movements on Amazon, with focus on best-selling SKUs</li>
+                            <li>Monitor conversion rates and Buy Box win rate for all products</li>
+                            <li>Adjust pricing dynamically within ±5% based on demand and competitor moves</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="font-bold text-gray-700 mb-2">Monthly Review</h3>
                         <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>Analyze our market share position for each product category compared to key competitors like Castrol</li>
-                            <li>Review customer feedback and complaints specifically related to pricing to identify any potential issues</li>
-                            <li>Evaluate the performance of current promotions by measuring sales lift, revenue impact, and customer adoption rates</li>
+                            <li>Analyze market share changes in premium synthetic oil segment</li>
+                            <li>Review customer feedback focusing on price-value perception</li>
+                            <li>Assess promotional performance and adjust bundle strategies</li>
+                            <li>Track margin performance against target of 25%</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="font-bold text-gray-700 mb-2">Quarterly Strategy</h3>
                         <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>Run targeted promotions for 5L products during peak seasons (e.g., 10% discount when buying 2 or more units)</li>
-                            <li>Create value-add bundle deals for 1L products (e.g., buy 3 get 1 free) to encourage bulk purchases</li>
-                            <li>Implement tiered volume discounts for 20L products (e.g., 5% off for 3+ units, 10% off for 5+ units)</li>
-                            <li>Conduct comprehensive review of pricing strategy effectiveness, including:
+                            <li>Implement premium positioning for 1L products with targeted promotions:
                                 <ul class="list-disc pl-6 mt-2">
-                                    <li>Analysis of revenue growth vs targets</li>
-                                    <li>Assessment of market share changes</li>
-                                    <li>Review of customer retention metrics</li>
-                                    <li>Evaluation of promotion effectiveness</li>
+                                    <li>Bundle deals (3+1 free) during peak seasons</li>
+                                    <li>Prime member exclusive discounts</li>
+                                    <li>New customer acquisition offers</li>
+                                </ul>
+                            </li>
+                            <li>Optimize 5L product strategy:
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>Volume discounts for 2+ units</li>
+                                    <li>Subscribe & Save program</li>
+                                    <li>Seasonal promotions aligned with service intervals</li>
+                                </ul>
+                            </li>
+                            <li>Bulk purchase incentives for 20L:
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>Tiered pricing for commercial customers</li>
+                                    <li>Free shipping thresholds</li>
+                                    <li>Loyalty rewards for repeat purchases</li>
                                 </ul>
                             </li>
                         </ul>
@@ -127,27 +137,27 @@
             <h2 class="text-xl font-bold mb-4">Key Performance Indicators</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                    <h3 class="font-bold text-gray-700">Sales Metrics</h3>
+                    <h3 class="font-bold text-gray-700">Revenue Metrics</h3>
                     <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Track monthly revenue against 12% growth target</li>
-                        <li>Monitor volume changes by product with 5% growth benchmark</li>
-                        <li>Compare market share against top 3 competitors</li>
+                        <li>Track monthly revenue against 15% growth target</li>
+                        <li>Monitor ASP changes by product category</li>
+                        <li>Measure market share in premium segment</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-bold text-gray-700">Price Position</h3>
+                    <h3 class="font-bold text-gray-700">Competitive Position</h3>
                     <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Weekly tracking of competitor price movements</li>
-                        <li>Monthly analysis of price sensitivity by product</li>
-                        <li>Measure ROI on all active promotions</li>
+                        <li>Daily price gap analysis vs Castrol</li>
+                        <li>Track Buy Box win rate</li>
+                        <li>Monitor promotion effectiveness</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-bold text-gray-700">Customer Metrics</h3>
                     <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Monthly customer satisfaction surveys</li>
-                        <li>Track customer retention rate (target: 85%)</li>
-                        <li>Monitor brand perception scores</li>
+                        <li>Review customer satisfaction scores</li>
+                        <li>Track repeat purchase rate</li>
+                        <li>Monitor return rates</li>
                     </ul>
                 </div>
             </div>
@@ -172,7 +182,7 @@
                     },
                     {
                         label: 'Recommended Price',
-                        data: [10.99, 6.89, 6.67, 5.99],
+                        data: [11.99, 7.29, 7.29, 5.99],
                         backgroundColor: '#48BB78'
                     },
                     {
@@ -211,17 +221,17 @@
                 datasets: [
                     {
                         label: 'Price Change %',
-                        data: [28, 5, 0, -3],
+                        data: [40, 11, 9, -3],
                         backgroundColor: '#4299E1'
                     },
                     {
                         label: 'Volume Impact %',
-                        data: [-10, -3, 0, 15],
+                        data: [-15, 5, 5, 20],
                         backgroundColor: '#48BB78'
                     },
                     {
                         label: 'Revenue Impact %',
-                        data: [15, 2, 0, 12],
+                        data: [19, 16, 14, 16],
                         backgroundColor: '#ECC94B'
                     }
                 ]
