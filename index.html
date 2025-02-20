@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Store Pricing Analysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.2/Recharts.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Ford Store Pricing Analysis & Strategy</h1>
+            <p class="text-gray-600 mt-2">Market Research and Pricing Optimization Recommendations</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold mb-4">Product Analysis</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-bold">1L Magnatec A5 5W30 (L15F60E)</h3>
+                        <p class="text-sm">Current: £8.59/L → New: £10.99/L (+28%)</p>
+                        <p class="text-sm text-gray-600">Below competitor average (£12.83/L)</p>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h3 class="font-bold">5L Magnatec A5 5W30 (L15F60F)</h3>
+                        <p class="text-sm">Current: £6.54/L → New: £6.89/L (+5%)</p>
+                        <p class="text-sm text-gray-600">Below competitor average (£7.16/L)</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-500 pl-4">
+                        <h3 class="font-bold">5L Magnatec E 5W20 (L15F8D6)</h3>
+                        <p class="text-sm">Current: £6.67/L → Maintain</p>
+                        <p class="text-sm text-gray-600">Well-positioned vs competitors (£7.16/L)</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h3 class="font-bold">20L Magnatec A5 5W30 (L15D5E2)</h3>
+                        <p class="text-sm">Current: £6.17/L → New: £5.99/L (-3%)</p>
+                        <p class="text-sm text-gray-600">Above market average (£4.81/L)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold mb-4">Implementation Strategy</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-bold">Pricing Framework</h3>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Weekly competitor monitoring</li>
+                            <li>Stay within 10% of Castrol average</li>
+                            <li>Price floor at market average</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Promotional Calendar</h3>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Quarterly 5L promotions</li>
+                            <li>1L bundle deals</li>
+                            <li>20L volume discounts</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Expected Impact</h3>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Revenue: +12% (6 months)</li>
+                            <li>Volume: +5% (6 months)</li>
+                            <li>Margin: +8% (6 months)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pricing-dashboard"></div>
+    </div>
+
+    <script type="text/babel">
+        const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, LabelList } = Recharts;
+
+        const PricingDashboard = () => {
+            const priceComparisonData = [
+                {
+                    name: '1L 5W30\n(L15F60E)',
+                    current: 8.59,
+                    recommended: 10.99,
+                    castrolAvg: 12.83,
+                    marketAvg: 11.83,
+                },
+                {
+                    name: '5L 5W30\n(L15F60F)',
+                    current: 6.54,
+                    recommended: 6.89,
+                    castrolAvg: 7.16,
+                    marketAvg: 6.25,
+                },
+                {
+                    name: '5L 5W20\n(L15F8D6)',
+                    current: 6.67,
+                    recommended: 6.67,
+                    castrolAvg: 7.16,
+                    marketAvg: 6.25,
+                },
+                {
+                    name: '20L 5W30\n(L15D5E2)',
+                    current: 6.17,
+                    recommended: 5.99,
+                    castrolAvg: 8.82,
+                    marketAvg: 4.81,
+                },
+            ];
+
+            const impactData = priceComparisonData.map(item => ({
+                name: item.name,
+                priceChange: ((item.recommended - item.current) / item.current * 100).toFixed(1),
+                volumeImpact: item.name.includes('1L') ? -10 :
+                            item.name.includes('5L') && item.name.includes('5W30') ? -3 :
+                            item.name.includes('5L') ? 0 : 15,
+                revenueImpact: item.name.includes('1L') ? 15 :
+                             item.name.includes('5L') && item.name.includes('5W30') ? 2 :
+                             item.name.includes('5L') ? 0 : 12,
+            }));
+
+            return (
+                <div className="space-y-8">
+                    <div className="bg-white rounded-lg shadow p-6">
+                        <h2 className="text-xl font-bold mb-4">Price Analysis (£/L)</h2>
+                        <div className="h-80">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart
+                                    data={priceComparisonData}
+                                    margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" interval={0} />
+                                    <YAxis />
+                                    <Legend />
+                                    <Bar dataKey="current" name="Current" fill="#8884d8">
+                                        <LabelList dataKey="current" position="top" formatter={(value) => `£${value}`} />
+                                    </Bar>
+                                    <Bar dataKey="recommended" name="New" fill="#82ca9d">
+                                        <LabelList dataKey="recommended" position="top" formatter={(value) => `£${value}`} />
+                                    </Bar>
+                                    <Bar dataKey="castrolAvg" name="Castrol Avg" fill="#ffc658">
+                                        <LabelList dataKey="castrolAvg" position="top" formatter={(value) => `£${value}`} />
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+
+                    <div className="bg-white rounded-lg shadow p-6">
+                        <h2 className="text-xl font-bold mb-4">Impact Analysis (%)</h2>
+                        <div className="h-80">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart
+                                    data={impactData}
+                                    margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" interval={0} />
+                                    <YAxis />
+                                    <Legend />
+                                    <Bar dataKey="priceChange" name="Price Change" fill="#8884d8">
+                                        <LabelList dataKey="priceChange" position="top" formatter={(value) => `${value}%`} />
+                                    </Bar>
+                                    <Bar dataKey="volumeImpact" name="Volume Impact" fill="#82ca9d">
+                                        <LabelList dataKey="volumeImpact" position="top" formatter={(value) => `${value}%`} />
+                                    </Bar>
+                                    <Bar dataKey="revenueImpact" name="Revenue Impact" fill="#ffc658">
+                                        <LabelList dataKey="revenueImpact" position="top" formatter={(value) => `${value}%`} />
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<PricingDashboard />, document.getElementById('pricing-dashboard'));
+    </script>
+</body>
+</html>
