@@ -1,325 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ford Store Pricing Analysis</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <style>
-        .chart-container {
-            position: relative;
-            height: 400px;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford Store Pricing Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <style>
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body class="bg-gray-50">
-        <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <!-- Navigation -->
-        <nav class="mb-8">
-            <ul class="flex space-x-4">
-                <li><a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">Pricing Analysis</a></li>
-                <li><a href="implementation.html" class="text-blue-600 hover:text-blue-800 font-medium">Implementation Strategy</a></li>
-            </ul>
-        </nav>
-        <!-- Header Section -->
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">Ford Store Pricing Strategy</h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="p-4 bg-blue-50 rounded">
-                    <h3 class="font-bold">Expected Revenue Growth</h3>
-                    <p class="text-2xl font-bold text-blue-600">+15%</p>
-                    <p class="text-gray-600">Over 6 months</p>
-                </div>
-                <div class="p-4 bg-green-50 rounded">
-                    <h3 class="font-bold">Market Share Growth</h3>
-                    <p class="text-2xl font-bold text-green-600">+8%</p>
-                    <p class="text-gray-600">Premium segment focus</p>
-                </div>
-                <div class="p-4 bg-yellow-50 rounded">
-                    <h3 class="font-bold">Price Position vs Castrol</h3>
-                    <p class="text-2xl font-bold text-yellow-600">-12%</p>
-                    <p class="text-gray-600">Competitive pricing on Amazon</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charts Section -->
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-xl font-bold mb-6">Product Price Comparison (£)</h2>
-            <div class="chart-container">
-                <canvas id="priceComparisonChart"></canvas>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-xl font-bold mb-6">Expected Impact Analysis (%)</h2>
-            <div class="chart-container">
-                <canvas id="impactAnalysisChart"></canvas>
-            </div>
-        </div>
-
-        <!-- Analysis Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Price Recommendations -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-xl font-bold mb-4">Price Recommendations</h2>
-                <div class="space-y-4">
-                    <!-- 1L Magnatec A5 5W30 -->
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-bold">1L Magnatec A5 5W30</h3>
-                        <p class="text-sm text-gray-500">SKU: L15F60E</p>
-                        <p class="text-lg font-semibold">From: £8.59 To: £10.90 (+27%)</p>
-                        <p class="text-sm text-gray-600">Competitive premium positioning based on product price. Key rationale:</p>
-                        <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Castrol premium product range: £11.30 - £17.06</li>
-                            <li>Premium segment average: ~£12.40</li>
-                            <li>Our product is A5 spec—offering enhanced performance versus the C2 variant</li>
-                            <li>On Amazon, we do not add a reseller premium; we closely match competitor pricing</li>
-                            <li>Competitor (Castrol MAGNATEC 5W-30 C2, 1L) is priced at £10.92, so we set £10.90 to slightly undercut</li>
-                            <li><strong>Other examples in 1L range:</strong>
-                                <ul class="list-disc pl-6 mt-1">
-                                    <li>Castrol MAGNATEC 5W-30 C3, 1L: £11.34</li>
-                                    <li>Castrol EDGE 5W-30 M, 1L: £15.95</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 5L Magnatec A5 5W30 -->
-                    <div class="border-l-4 border-green-500 pl-4">
-                        <h3 class="font-bold">5L Magnatec A5 5W30</h3>
-                        <p class="text-sm text-gray-500">SKU: L15F60F</p>
-                        <p class="text-lg font-semibold">From: £32.71 To: £33.30 (+2%)</p>
-                        <p class="text-sm text-gray-600">Competitive value positioning based on product price. Key rationale:</p>
-                        <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Competitor (Castrol MAGNATEC 5W-30 A5, 5L) is ~£33.45</li>
-                            <li>We undercut slightly to capture price-sensitive buyers on Amazon</li>
-                            <li>Maintains A5 specification while reflecting competitive pricing</li>
-                            <li><strong>Other examples in 5L range:</strong>
-                                <ul class="list-disc pl-6 mt-1">
-                                    <li>Castrol EDGE 5W-30 LL, 5L: ~£37.55</li>
-                                    <li>Castrol EDGE 5W-40, 5L: ~£39.10</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 5L Magnatec E 5W20 -->
-                    <div class="border-l-4 border-yellow-500 pl-4">
-                        <h3 class="font-bold">5L Magnatec E 5W20</h3>
-                        <p class="text-sm text-gray-500">SKU: L15F8D6</p>
-                        <p class="text-lg font-semibold">From: £33.37 To: £33.30 (-1%)</p>
-                        <p class="text-sm text-gray-600">Aligned positioning based on product price. Key rationale:</p>
-                        <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Matches our 5L pricing to simplify customer choice</li>
-                            <li>Competitor pricing for similar products is ~£33.45</li>
-                            <li>Slightly undercut to remain competitive</li>
-                            <li><strong>Other examples in similar range:</strong>
-                                <ul class="list-disc pl-6 mt-1">
-                                    <li>Carlube Triple R 5W-30, 5L: ~£29.75</li>
-                                    <li>Castrol MAGNATEC 5W-30 C3, 5L: ~£37.75</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 20L Magnatec A5 5W30 -->
-                    <div class="border-l-4 border-purple-500 pl-4">
-                        <h3 class="font-bold">20L Magnatec A5 5W30</h3>
-                        <p class="text-sm text-gray-500">SKU: L15D5E2</p>
-                        <p class="text-lg font-semibold">From: £123.49 To: £119.80 (-3%)</p>
-                        <p class="text-sm text-gray-600">Strategic bulk pricing based on product price. Key rationale:</p>
-                        <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
-                            <li>Current bulk price is £123.49; we reduce slightly to drive volume</li>
-                            <li>Competitor average for similar 20L products on Amazon is ~£123.49</li>
-                            <li>Price reduction of 3% positions us as the cost leader without sacrificing quality</li>
-                            <li><strong>Other examples in 20L range:</strong>
-                                <ul class="list-disc pl-6 mt-1">
-                                    <li>Carlube Triple R 5W-30 A5, 20L: ~£108.00</li>
-                                    <li>Other premium offerings: significantly higher</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Implementation Plan -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-xl font-bold mb-4">Implementation Plan</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-gray-700 mb-2">Weekly Actions</h3>
-                        <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>Monitor Castrol and other premium brand pricing on Amazon, focusing on best-selling SKUs</li>
-                            <li>Utilize dynamic pricing tools (e.g., Amazon repricer) and adjust product prices within ±5% based on demand and competitor moves</li>
-                            <li>Track conversion rates and Buy Box win rates for all products</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-gray-700 mb-2">Monthly Review</h3>
-                        <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>Analyze market share changes in the premium synthetic oil segment</li>
-                            <li>Review customer feedback on price-value perception</li>
-                            <li>Assess promotional performance and adjust bundle strategies</li>
-                            <li>Monitor margin performance against a target of ~25%</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-gray-700 mb-2">Quarterly Strategy</h3>
-                        <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li>For 1L products:
-                                <ul class="list-disc pl-6 mt-2">
-                                    <li>Implement bundle deals (e.g., 3+1 free) during peak seasons</li>
-                                    <li>Offer Prime member exclusive discounts</li>
-                                    <li>Roll out new customer acquisition offers</li>
-                                </ul>
-                            </li>
-                            <li>For 5L products:
-                                <ul class="list-disc pl-6 mt-2">
-                                    <li>Offer volume discounts for purchases of 2+ units</li>
-                                    <li>Promote a Subscribe & Save program</li>
-                                    <li>Align seasonal promotions with service intervals</li>
-                                </ul>
-                            </li>
-                            <li>For 20L products:
-                                <ul class="list-disc pl-6 mt-2">
-                                    <li>Implement tiered pricing for commercial customers</li>
-                                    <li>Set free shipping thresholds for bulk orders</li>
-                                    <li>Introduce loyalty rewards for repeat purchases</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Monitoring Section -->
-        <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
-            <h2 class="text-xl font-bold mb-4">Key Performance Indicators</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                    <h3 class="font-bold text-gray-700">Revenue Metrics</h3>
-                    <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Track monthly revenue against a 15% growth target</li>
-                        <li>Monitor ASP changes by product category</li>
-                        <li>Measure market share in the premium segment</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-gray-700">Competitive Position</h3>
-                    <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Perform daily price gap analysis vs Castrol</li>
-                        <li>Track Buy Box win rates</li>
-                        <li>Monitor promotion effectiveness</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-gray-700">Customer Metrics</h3>
-                    <ul class="list-disc pl-6 space-y-2 text-sm">
-                        <li>Review customer satisfaction scores</li>
-                        <li>Track repeat purchase rates</li>
-                        <li>Monitor return rates</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Header Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Ford Store Pricing Strategy</h1>
     </div>
 
-    <script>
-        // Chart data and configuration
-        const products = ['1L 5W30', '5L 5W30', '5L 5W20', '20L 5W30'];
-        
-        // Product Price Comparison Chart
-        const priceCtx = document.getElementById('priceComparisonChart').getContext('2d');
-        new Chart(priceCtx, {
-            type: 'bar',
-            data: {
-                labels: products,
-                datasets: [
-                    {
-                        label: 'Current Price (£)',
-                        data: [8.59, 32.71, 33.37, 123.49],
-                        backgroundColor: '#4299E1'
-                    },
-                    {
-                        label: 'Recommended Price (£)',
-                        data: [10.90, 33.30, 33.30, 119.80],
-                        backgroundColor: '#48BB78'
-                    },
-                    {
-                        label: 'Castrol Competitor Avg (£)',
-                        data: [10.92, 33.45, 33.45, 123.49],
-                        backgroundColor: '#ECC94B'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Product Price Comparison (£)'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Price (£)'
-                        }
-                    }
-                }
-            }
-        });
+    <!-- Charts Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <h2 class="text-xl font-bold mb-6">Product Price Comparison (£)</h2>
+      <div class="chart-container">
+        <canvas id="priceComparisonChart"></canvas>
+      </div>
+    </div>
 
-        // Impact Analysis Chart (percentage impacts remain unchanged)
-        const impactCtx = document.getElementById('impactAnalysisChart').getContext('2d');
-        new Chart(impactCtx, {
-            type: 'bar',
-            data: {
-                labels: products,
-                datasets: [
-                    {
-                        label: 'Price Change (%)',
-                        data: [27, 2, -1, -3],
-                        backgroundColor: '#4299E1'
-                    },
-                    {
-                        label: 'Volume Impact (%)',
-                        data: [-10, 2, 0, 15],
-                        backgroundColor: '#48BB78'
-                    },
-                    {
-                        label: 'Revenue Impact (%)',
-                        data: [15, 10, 8, 12],
-                        backgroundColor: '#ECC94B'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Expected Impact Analysis'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Percentage (%)'
-                        }
-                    }
-                }
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <h2 class="text-xl font-bold mb-6">Expected Impact Analysis (%)</h2>
+      <div class="chart-container">
+        <canvas id="impactAnalysisChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Analysis Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Price Recommendations -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-bold mb-4">Price Recommendations</h2>
+        <div class="space-y-4">
+          <!-- 1L Magnatec A5 5W30 -->
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="font-bold">1L Magnatec A5 5W30</h3>
+            <p class="text-sm text-gray-500">SKU: L15F60E</p>
+            <p class="text-lg font-semibold">From: £8.59 To: £10.90 (+27%)</p>
+            <p class="text-sm text-gray-600">Competitive premium positioning based on product price. Key rationale:</p>
+            <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
+              <li>Castrol premium product range (product price): £11.30 - £17.06</li>
+              <li>Premium segment average: ~£12.40</li>
+              <li>Our product is A5 spec—offering enhanced performance versus the C2 variant</li>
+              <li>Competitor (Castrol MAGNATEC 5W-30 C2, 1L) is priced at £10.92, so we set £10.90 to slightly undercut</li>
+              <li><strong>Examples in 1L range:</strong>
+                <ul class="list-disc pl-6 mt-1">
+                  <li>Castrol MAGNATEC 5W-30 C3, 1L: £11.34</li>
+                  <li>Castrol MAGNATEC 5W-30 C2, 1L: £10.92</li>
+                  <li>Castrol EDGE 5W-30 M, 1L: £15.95</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- 5L Magnatec A5 5W30 -->
+          <div class="border-l-4 border-green-500 pl-4">
+            <h3 class="font-bold">5L Magnatec A5 5W30</h3>
+            <p class="text-sm text-gray-500">SKU: L15F60F</p>
+            <p class="text-lg font-semibold">From: £32.71 To: £33.30 (+2%)</p>
+            <p class="text-sm text-gray-600">Competitive value positioning based on product price. Key rationale:</p>
+            <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
+              <li>Competitor (Castrol MAGNATEC 5W-30 A5, 5L) is ~£33.45</li>
+              <li>We undercut slightly to capture price-sensitive buyers on Amazon</li>
+              <li>Maintains A5 specification while reflecting competitive pricing</li>
+              <li><strong>Examples in 5L range:</strong>
+                <ul class="list-disc pl-6 mt-1">
+                  <li>Castrol EDGE 5W-30 LL, 5L: ~£37.55</li>
+                  <li>Castrol EDGE 5W-40, 5L: ~£39.10</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- 5L Magnatec E 5W20 -->
+          <div class="border-l-4 border-yellow-500 pl-4">
+            <h3 class="font-bold">5L Magnatec E 5W20</h3>
+            <p class="text-sm text-gray-500">SKU: L15F8D6</p>
+            <p class="text-lg font-semibold">From: £33.37 To: £33.30 (-1%)</p>
+            <p class="text-sm text-gray-600">Aligned positioning based on product price. Key rationale:</p>
+            <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
+              <li>Matches our 5L pricing to simplify customer choice</li>
+              <li>Competitor pricing for similar products is ~£33.45</li>
+              <li>Slightly undercut to remain competitive</li>
+              <li><strong>Examples in similar range:</strong>
+                <ul class="list-disc pl-6 mt-1">
+                  <li>Carlube Triple R 5W-30, 5L: ~£29.75</li>
+                  <li>Castrol MAGNATEC 5W-30 C3, 5L: ~£37.75</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- 20L Magnatec A5 5W30 -->
+          <div class="border-l-4 border-purple-500 pl-4">
+            <h3 class="font-bold">20L Magnatec A5 5W30</h3>
+            <p class="text-sm text-gray-500">SKU: L15D5E2</p>
+            <p class="text-lg font-semibold">From: £123.49 To: £119.80 (-3%)</p>
+            <p class="text-sm text-gray-600">Strategic bulk pricing based on product price. Key rationale:</p>
+            <ul class="text-sm text-gray-600 mt-2 list-disc pl-4">
+              <li>Current bulk price is £123.49; we reduce slightly to drive volume</li>
+              <li>Competitor average for similar 20L products on Amazon is ~£123.49</li>
+              <li>Price reduction of 3% positions us as the cost leader without sacrificing quality</li>
+              <li><strong>Examples in 20L range:</strong>
+                <ul class="list-disc pl-6 mt-1">
+                  <li>Carlube Triple R 5W-30 A5, 20L: ~£108.00</li>
+                  <li>Other premium offerings: significantly higher</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Implementation Plan -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-bold mb-4">Implementation Plan</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-bold text-gray-700 mb-2">Weekly Actions</h3>
+            <ul class="list-disc pl-6 space-y-2 text-sm">
+              <li>Monitor Castrol and other premium brand pricing on Amazon, focusing on best-selling SKUs</li>
+              <li>Track conversion rates and Buy Box win rates for all products</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-700 mb-2">Monthly Review</h3>
+            <ul class="list-disc pl-6 space-y-2 text-sm">
+              <li>Analyze market share changes in the premium synthetic oil segment</li>
+              <li>Review customer feedback on price-value perception</li>
+              <li>Assess promotional performance and adjust bundle strategies</li>
+              <li>Monitor margin performance against a target of ~25%</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-700 mb-2">Quarterly Strategy</h3>
+            <ul class="list-disc pl-6 space-y-2 text-sm">
+              <li>For 1L products:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Implement bundle deals (e.g., 3+1 free) during peak seasons</li>
+                  <li>Offer Prime member exclusive discounts</li>
+                </ul>
+              </li>
+              <li>For 5L products:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Offer volume discounts for purchases of 2+ units</li>
+                  <li>Promote a Subscribe & Save program</li>
+                </ul>
+              </li>
+              <li>For 20L products:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Implement tiered pricing for commercial customers</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monitoring Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
+      <h2 class="text-xl font-bold mb-4">Key Performance Indicators</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="font-bold text-gray-700">Revenue Metrics</h3>
+          <ul class="list-disc pl-6 space-y-2 text-sm">
+            <li>Measure market share in the premium segment</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-700">Competitive Position</h3>
+          <ul class="list-disc pl-6 space-y-2 text-sm">
+            <li>Perform price gap analysis vs Castrol</li>
+            <li>Track Buy Box win rates</li>
+            <li>Monitor promotion effectiveness</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-700">Customer Metrics</h3>
+          <ul class="list-disc pl-6 space-y-2 text-sm">
+            <li>Review customer satisfaction scores</li>
+            <li>Track repeat purchase rates</li>
+            <li>Monitor return rates</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Chart data and configuration
+    const products = ['1L 5W30', '5L 5W30', '5L 5W20', '20L 5W30'];
+
+    // Product Price Comparison Chart
+    const priceCtx = document.getElementById('priceComparisonChart').getContext('2d');
+    new Chart(priceCtx, {
+      type: 'bar',
+      data: {
+        labels: products,
+        datasets: [
+          {
+            label: 'Current Price (£)',
+            data: [8.59, 32.71, 33.37, 123.49],
+            backgroundColor: '#4299E1'
+          },
+          {
+            label: 'Recommended Price (£)',
+            data: [10.90, 33.30, 33.30, 119.80],
+            backgroundColor: '#48BB78'
+          },
+          {
+            label: 'Castrol Competitor Avg (£)',
+            data: [10.92, 33.45, 33.45, 123.49],
+            backgroundColor: '#ECC94B'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Product Price Comparison (£)'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Price (£)'
             }
-        });
-    </script>
+          }
+        }
+      }
+    });
+
+    // Impact Analysis Chart (percentage impacts remain unchanged)
+    const impactCtx = document.getElementById('impactAnalysisChart').getContext('2d');
+    new Chart(impactCtx, {
+      type: 'bar',
+      data: {
+        labels: products,
+        datasets: [
+          {
+            label: 'Price Change (%)',
+            data: [27, 2, -1, -3],
+            backgroundColor: '#4299E1'
+          },
+          {
+            label: 'Volume Impact (%)',
+            data: [-10, 2, 0, 15],
+            backgroundColor: '#48BB78'
+          },
+          {
+            label: 'Revenue Impact (%)',
+            data: [15, 10, 8, 12],
+            backgroundColor: '#ECC94B'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Expected Impact Analysis'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Percentage (%)'
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
